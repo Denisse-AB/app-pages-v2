@@ -1,9 +1,9 @@
 <template>
   <header class="shadow-lg items-center justify-between flex p-5">
     <div>
-      <a class="text-lg" href="/">{{ t('home')}}</a>
+      <a class="text-lg" @click="reload">{{ t('home')}}</a>
     </div>
-    <a href="/">
+    <a  @click="reload">
       <img class="w-16 mx-auto" alt="Vue logo" src="../assets/logo.png">
     </a>
     <Menu
@@ -75,6 +75,12 @@ const languages = ref([
   { language: 'en', title: 'English' },
   { language: 'es', title: 'Español' }
 ])
+
+// reload for github pages purposes
+// set a real path for your website
+const reload = () => {
+  location.reload()
+}
 
 const changeLocale = (locale) => {
   i18n.global.locale.value = locale
